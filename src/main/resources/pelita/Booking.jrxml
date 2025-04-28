@@ -1,0 +1,466 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.21.3.final using JasperReports Library version 6.21.3-4a3078d20785ebe464f18037d738d12fc98c13cf  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Booking" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="ced95029-b569-4027-895c-af2843a4e088">
+	<style name="Title" fontName="Times New Roman" fontSize="50" isBold="true"/>
+	<style name="SubTitle" forecolor="#736343" fontName="Arial" fontSize="18"/>
+	<style name="Column header" forecolor="#666666" fontName="Arial" fontSize="12" isBold="true"/>
+	<style name="Detail" fontName="Arial" fontSize="12"/>
+	<style name="Row" mode="Transparent">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$V{REPORT_COUNT}%2 == 0]]></conditionExpression>
+			<style backcolor="#E6DAC3"/>
+		</conditionalStyle>
+	</style>
+	<parameter name="nomor" class="java.lang.String"/>
+	<parameter name="tanggal" class="java.lang.String"/>
+	<parameter name="nama_jenis_tamu" class="java.lang.String"/>
+	<parameter name="nama_tamu" class="java.lang.String"/>
+	<parameter name="instansi_tamu" class="java.lang.String"/>
+	<parameter name="tgl_masuk" class="java.lang.String"/>
+	<parameter name="tgl_keluar" class="java.lang.String"/>
+	<parameter name="peserta" class="java.lang.String"/>
+	<parameter name="kegiatan" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="TANGGAL" class="java.lang.String"/>
+	<field name="KODE_PRASARANA" class="java.lang.String"/>
+	<field name="NAMA_PRASARANA" class="java.lang.String"/>
+	<field name="DARI_JAM" class="java.lang.String"/>
+	<field name="SAMPAI_JAM" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="83" splitType="Stretch">
+			<image>
+				<reportElement x="0" y="0" width="164" height="60" uuid="ddc15723-2728-421f-b95e-2df9faf64ce1"/>
+				<imageExpression><![CDATA["pelita.png"]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement style="Title" x="1" y="60" width="263" height="20" uuid="1a652692-054a-40f3-ade5-68d8da36626d"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Calibri" size="12"/>
+				</textElement>
+				<text><![CDATA[BUKTI PEMESANAN]]></text>
+			</staticText>
+			<image>
+				<reportElement x="410" y="-115" width="260" height="195" uuid="5d64e5b3-07bb-48ab-89dc-15c0c46bb19a"/>
+				<imageExpression><![CDATA["coffee_stain.png"]]></imageExpression>
+			</image>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement style="Column header" x="360" y="0" width="197" height="20" forecolor="#030303" uuid="0616f3fe-0354-456f-8911-ec30ec51a5ae"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Trebuchet MS" size="8" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Print Date: " + new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="442" y="40" width="37" height="13" uuid="cfb7b805-10ff-4a0c-a864-2e0770c0b0b9">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement>
+					<font fontName="Calibri" size="9" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Tanggal]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="442" y="53" width="37" height="13" uuid="eba8db72-7967-47cf-9d5a-4068cc419c9c">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement>
+					<font fontName="Calibri" size="9" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Nomor]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="481" y="40" width="8" height="13" uuid="cf59b100-ecc3-447b-8b54-946a92a43c6f">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement>
+					<font fontName="Calibri" size="9" isBold="true"/>
+				</textElement>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="481" y="53" width="8" height="13" uuid="128c4bcf-1688-4641-98a7-a1c3ec23a780">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement>
+					<font fontName="Calibri" size="9" isBold="true"/>
+				</textElement>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="490" y="53" width="65" height="13" uuid="5bbe8aa6-bac4-46c9-ab86-d2210c1b4247"/>
+				<textElement textAlignment="Right">
+					<font fontName="Calibri" size="9" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{nomor}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="490" y="40" width="65" height="13" uuid="fa3b4462-6bcf-479e-baa8-818c621d2b10"/>
+				<textElement textAlignment="Right">
+					<font fontName="Calibri" size="9" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{tanggal}]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="115" splitType="Stretch">
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="2" width="555" height="1" uuid="1a61a836-d137-48b1-ad67-6ff64600bf93"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+			<rectangle radius="5">
+				<reportElement x="0" y="28" width="270" height="83" uuid="27be14c0-d2db-4c87-a4ad-8c4abd7f5810"/>
+				<graphicElement>
+					<pen lineColor="#E0EEF9"/>
+				</graphicElement>
+			</rectangle>
+			<staticText>
+				<reportElement x="1" y="14" width="60" height="13" uuid="93d5ba56-ef56-429c-b24f-e2792371d699">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement>
+					<font fontName="Calibri" size="9" isBold="true"/>
+				</textElement>
+				<text><![CDATA[TAMU]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="285" y="14" width="60" height="13" uuid="f4d3172c-f066-45f1-999c-24d4720c5503">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement>
+					<font fontName="Calibri" size="9" isBold="true"/>
+				</textElement>
+				<text><![CDATA[INFORMASI]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="3" y="36" width="60" height="13" uuid="c18a66dc-11e3-4eec-8ce0-2227f02f68a8">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement>
+					<font fontName="Calibri" size="9" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Jenis Tamu]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="3" y="51" width="60" height="13" uuid="bcf9ead8-d845-4345-9b51-5922e53c2120">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement>
+					<font fontName="Calibri" size="9" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Nama]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="65" y="36" width="8" height="13" uuid="b98c35cd-5cc4-4703-87fe-d3b368032e9e">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement>
+					<font fontName="Calibri" size="9" isBold="false"/>
+				</textElement>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="65" y="51" width="8" height="13" uuid="797de03f-6877-4379-8782-ee3ca5c69557">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement>
+					<font fontName="Calibri" size="9" isBold="false"/>
+				</textElement>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="3" y="67" width="60" height="13" uuid="a8e08f20-8558-4e5e-809f-87a86d9ddbd4">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement>
+					<font fontName="Calibri" size="9" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Instansi]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="65" y="67" width="8" height="13" uuid="b1e71199-e738-41b7-9969-da1581e5811e">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement>
+					<font fontName="Calibri" size="9" isBold="false"/>
+				</textElement>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<rectangle radius="5">
+				<reportElement x="285" y="28" width="270" height="83" uuid="064fa7ec-44bd-4ecf-b676-2016f69391ea"/>
+				<graphicElement>
+					<pen lineColor="#E0EEF9"/>
+				</graphicElement>
+			</rectangle>
+			<staticText>
+				<reportElement x="288" y="36" width="60" height="13" uuid="3c877cb5-c9be-4585-8ba2-441b11855e9b">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement>
+					<font fontName="Calibri" size="9" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Tanggal]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="288" y="51" width="60" height="13" uuid="f2110d33-759b-44d9-8992-c204d9cbe237">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement>
+					<font fontName="Calibri" size="9" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Peserta]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="350" y="36" width="8" height="13" uuid="594dbae7-bd48-4257-81d1-7694678b351b">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement>
+					<font fontName="Calibri" size="9" isBold="false"/>
+				</textElement>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="350" y="51" width="8" height="13" uuid="7f858fd4-731f-47dc-b361-ba7d5a95b809">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement>
+					<font fontName="Calibri" size="9" isBold="false"/>
+				</textElement>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="288" y="67" width="60" height="13" uuid="2b2e23d7-a9f1-4272-b5b9-752384e3ed65">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement>
+					<font fontName="Calibri" size="9" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Kegiatan]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="350" y="67" width="8" height="13" uuid="5b635a06-d3ef-4a30-96b7-09f0acb54ace">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement>
+					<font fontName="Calibri" size="9" isBold="false"/>
+				</textElement>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="76" y="36" width="188" height="13" uuid="a3dcc786-44cd-4d0a-bfcf-cdb425b02581"/>
+				<textElement>
+					<font fontName="Calibri" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{nama_jenis_tamu}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="76" y="51" width="188" height="13" uuid="44d96965-34b9-4205-bbb1-2c9a3be81ffc"/>
+				<textElement>
+					<font fontName="Calibri" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{nama_tamu}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="3" y="82" width="261" height="27" uuid="1597f1d2-a4d6-4605-a93a-46f1c4b9ae1d"/>
+				<textElement>
+					<font fontName="Calibri" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{instansi_tamu}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="288" y="82" width="261" height="27" uuid="4a337193-c10e-4434-8667-47978e9cd70c"/>
+				<textElement>
+					<font fontName="Calibri" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{kegiatan}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="361" y="51" width="188" height="13" uuid="4275ba7c-c942-4da6-8854-93f4b6a39012"/>
+				<textElement>
+					<font fontName="Calibri" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{peserta}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="361" y="36" width="188" height="13" uuid="4bf11c28-0692-4728-9fdd-a9542a402e7f"/>
+				<textElement>
+					<font fontName="Calibri" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{tgl_masuk} + "s/d" + $P{tgl_keluar}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="21" splitType="Stretch">
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="5" width="555" height="1" uuid="af411c46-1b52-4774-9b73-47df8a44d216"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="20" width="555" height="1" uuid="e014e65f-6fe5-4999-83ac-e0736084dff5"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement x="0" y="8" width="32" height="13" uuid="18e8749d-c0ce-4290-bed4-19dde333d2a3">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font fontName="Calibri" size="9" isBold="false"/>
+				</textElement>
+				<text><![CDATA[NO.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="32" y="8" width="88" height="13" uuid="4218310a-ffca-4351-acb2-a001025b0e1d">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font fontName="Calibri" size="9" isBold="false"/>
+				</textElement>
+				<text><![CDATA[TANGGAL]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="120" y="8" width="70" height="13" uuid="517bad50-f4ca-4c04-8ada-c3d7e85e2da4">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font fontName="Calibri" size="9" isBold="false"/>
+				</textElement>
+				<text><![CDATA[KODE]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="190" y="8" width="232" height="13" uuid="b086d097-91cd-490a-9ff3-d51278827ca4">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font fontName="Calibri" size="9" isBold="false"/>
+				</textElement>
+				<text><![CDATA[NAMA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="489" y="8" width="66" height="13" uuid="52a56664-051b-4ff6-a144-91460fed31e2">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font fontName="Calibri" size="9" isBold="false"/>
+				</textElement>
+				<text><![CDATA[SAMPAI JAM]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="422" y="8" width="66" height="13" uuid="3c0a05eb-ee4d-4c31-8d55-0163799bf476">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font fontName="Calibri" size="9" isBold="false"/>
+				</textElement>
+				<text><![CDATA[DARI JAM]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="15" splitType="Stretch">
+			<frame>
+				<reportElement style="Row" mode="Opaque" x="0" y="0" width="555" height="15" uuid="a98495d8-3c8d-4fa0-81f5-30c3efc2f766"/>
+				<textField>
+					<reportElement x="32" y="1" width="88" height="14" uuid="65da6eff-80ae-4119-8597-041d89313219">
+						<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="dbedad75-3e92-4833-9849-646a073539b9"/>
+					</reportElement>
+					<textElement verticalAlignment="Middle">
+						<font fontName="Calibri" size="8"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{TANGGAL}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="120" y="1" width="70" height="14" uuid="c511204d-3588-4924-8c43-63792c3ffc33">
+						<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="f2fea77a-1f1d-4155-86c5-3dc2e86a40b0"/>
+					</reportElement>
+					<textElement verticalAlignment="Middle">
+						<font fontName="Calibri" size="8"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{KODE_PRASARANA}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="190" y="1" width="232" height="14" uuid="37a8484e-4517-44db-b1a4-7cda66938215">
+						<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="4c646711-685a-4530-8bad-1304d1c525df"/>
+					</reportElement>
+					<textElement verticalAlignment="Middle">
+						<font fontName="Calibri" size="8"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{NAMA_PRASARANA}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="422" y="1" width="66" height="14" uuid="e10fe6fc-ba61-4de5-9890-3080f30a66c7">
+						<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="2a732a0f-c333-4637-9ac0-aa728457fa5c"/>
+					</reportElement>
+					<textElement verticalAlignment="Middle">
+						<font fontName="Calibri" size="8"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{DARI_JAM}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="489" y="1" width="66" height="14" uuid="b5a63019-4d61-433c-b3e3-605d9627a8bd">
+						<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="e0aef279-08ec-4f24-bb77-f636a0ed59b5"/>
+					</reportElement>
+					<textElement verticalAlignment="Middle">
+						<font fontName="Calibri" size="8"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{SAMPAI_JAM}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="0" y="1" width="32" height="14" uuid="a2bc395e-9f1e-4c8a-87c1-21511dad6554"/>
+					<textElement verticalAlignment="Middle">
+						<font fontName="Calibri" size="8"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$V{REPORT_COUNT}]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="12" splitType="Stretch">
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="3" width="555" height="1" uuid="fa45a887-615a-4d84-a2d7-8a2219671b3c"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="25" splitType="Stretch">
+			<frame>
+				<reportElement mode="Opaque" x="-20" y="1" width="594" height="24" forecolor="#D0B48E" backcolor="#F2EBDF" uuid="183682bc-d976-4756-83e0-6625a3f98ed1"/>
+				<textField evaluationTime="Report">
+					<reportElement style="Column header" x="535" y="8" width="40" height="10" forecolor="#736343" uuid="0193f9b3-1559-491a-8580-b6988863b6a1"/>
+					<textElement>
+						<font fontName="Calibri" size="8" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement style="Column header" x="455" y="8" width="80" height="10" forecolor="#736343" uuid="d00b105e-494b-418b-8ac9-8b1b4824f4f0"/>
+					<textElement textAlignment="Right">
+						<font fontName="Calibri" size="8" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>
